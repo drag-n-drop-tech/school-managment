@@ -3,15 +3,18 @@
 
 {% block content %}
 
-    <body class="hold-transition login-page">
+    <body class="hold-transition login-page bg-primary">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="{% url 'login' %}"><b>Student </b>Management System</a>
-  </div>
+  
   <!-- /.login-logo -->
   <div class="card">
+    <div class="card-header">
+      <div class="login-logo">
+    <a href="{% url 'login' %}"><b>Student </b>Management System</a>
+  </div>
+    </div>
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to Student Management System</p>
+      <p class="login-box-msg">Sign in to School Management System</p>
 
       <form action="{% url 'doLogin' %}" method="POST">
       {% csrf_token %}

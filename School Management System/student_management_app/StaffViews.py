@@ -8,7 +8,7 @@ from django.core import serializers
 import json
 
 
-from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, LeaveReportStaff, FeedBackStaffs, StudentResult
+from student_management_app.models import CustomUser, Staffs, Classes, Subjects, Students,  Attendance, AttendanceReport, LeaveReportStaff, FeedBackStaffs, StudentResult
 
 
 def staff_home(request):
@@ -17,7 +17,7 @@ def staff_home(request):
     subjects = Subjects.objects.filter(staff_id=request.user.id)
     course_id_list = []
     for subject in subjects:
-        course = Courses.objects.get(id=subject.course_id.id)
+        course = Classes.objects.get(id=subject.course_id.id)
         course_id_list.append(course.id)
     
     final_course = []

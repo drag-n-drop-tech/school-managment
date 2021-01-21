@@ -7,18 +7,18 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
+from student_management_app.models import CustomUser, Staffs, Classes, Subjects, Students,  FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
 from .forms import AddStudentForm, EditStudentForm
 
 
 def admin_home(request):
     all_student_count = Students.objects.all().count()
     subject_count = Subjects.objects.all().count()
-    course_count = Courses.objects.all().count()
+    course_count = Classes.objects.all().count()
     staff_count = Staffs.objects.all().count()
 
     # Total Subjects and students in Each Course
-    course_all = Courses.objects.all()
+    course_all = Classes.objects.all()
     course_name_list = []
     subject_count_list = []
     student_count_list_in_course = []
@@ -34,7 +34,7 @@ def admin_home(request):
     subject_list = []
     student_count_list_in_subject = []
     for subject in subject_all:
-        course = Courses.objects.get(id=subject.course_id.id)
+        course = Classes.objects.get(id=subject.course_id.id)
         student_count = Students.objects.filter(course_id=course.id).count()
         subject_list.append(subject.subject_name)
         student_count_list_in_subject.append(student_count)
@@ -192,7 +192,7 @@ def add_course_save(request):
     else:
         course = request.POST.get('course')
         try:
-            course_model = Courses(course_name=course)
+            course_model = Classes(course_name=course)
             course_model.save()
             messages.success(request, "Course Added Successfully!")
             return redirect('add_course')
@@ -202,7 +202,7 @@ def add_course_save(request):
 
 
 def manage_course(request):
-    courses = Courses.objects.all()
+    courses = Classes.objects.all()
     context = {
         "courses": courses
     }
@@ -210,7 +210,7 @@ def manage_course(request):
 
 
 def edit_course(request, course_id):
-    course = Courses.objects.get(id=course_id)
+    course = Classes.objects.get(id=course_id)
     context = {
         "course": course,
         "id": course_id
@@ -226,7 +226,7 @@ def edit_course_save(request):
         course_name = request.POST.get('course')
 
         try:
-            course = Courses.objects.get(id=course_id)
+            course = Classes.objects.get(id=course_id)
             course.course_name = course_name
             course.save()
 
@@ -239,7 +239,7 @@ def edit_course_save(request):
 
 
 def delete_course(request, course_id):
-    course = Courses.objects.get(id=course_id)
+    course = Classes.objects.get(id=course_id)
     try:
         course.delete()
         messages.success(request, "Course Deleted Successfully.")
@@ -364,7 +364,7 @@ def add_student_save(request):
                 user = CustomUser.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, user_type=3)
                 user.students.address = address
 
-                course_obj = Courses.objects.get(id=course_id)
+                course_obj = Classes.objects.get(id=course_id)
                 user.students.course_id = course_obj
 
                 session_year_obj = SessionYearModel.objects.get(id=session_year_id)
@@ -457,7 +457,7 @@ def edit_student_save(request):
                 student_model = Students.objects.get(admin=student_id)
                 student_model.address = address
 
-                course = Courses.objects.get(id=course_id)
+                course = Classes.objects.get(id=course_id)
                 student_model.course_id = course
 
                 session_year_obj = SessionYearModel.objects.get(id=session_year_id)
@@ -491,7 +491,7 @@ def delete_student(request, student_id):
 
 
 def add_subject(request):
-    courses = Courses.objects.all()
+    courses = Classes.objects.all()
     staffs = CustomUser.objects.filter(user_type='2')
     context = {
         "courses": courses,
@@ -509,7 +509,7 @@ def add_subject_save(request):
         subject_name = request.POST.get('subject')
 
         course_id = request.POST.get('course')
-        course = Courses.objects.get(id=course_id)
+        course = Classes.objects.get(id=course_id)
         
         staff_id = request.POST.get('staff')
         staff = CustomUser.objects.get(id=staff_id)
@@ -534,7 +534,7 @@ def manage_subject(request):
 
 def edit_subject(request, subject_id):
     subject = Subjects.objects.get(id=subject_id)
-    courses = Courses.objects.all()
+    courses = Classes.objects.all()
     staffs = CustomUser.objects.filter(user_type='2')
     context = {
         "subject": subject,
@@ -558,7 +558,7 @@ def edit_subject_save(request):
             subject = Subjects.objects.get(id=subject_id)
             subject.subject_name = subject_name
 
-            course = Courses.objects.get(id=course_id)
+            course = Classes.objects.get(id=course_id)
             subject.course_id = course
 
             staff = CustomUser.objects.get(id=staff_id)

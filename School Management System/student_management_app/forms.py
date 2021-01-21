@@ -1,6 +1,6 @@
 from django import forms 
 from django.forms import Form
-from student_management_app.models import Courses, SessionYearModel
+from student_management_app.models import Classes
 
 
 class DateInput(forms.DateInput):
@@ -17,7 +17,7 @@ class AddStudentForm(forms.Form):
 
     #For Displaying Courses
     try:
-        courses = Courses.objects.all()
+        courses = Classes.objects.all()
         course_list = []
         for course in courses:
             single_course = (course.id, course.course_name)
@@ -59,7 +59,7 @@ class EditStudentForm(forms.Form):
 
     #For Displaying Courses
     try:
-        courses = Courses.objects.all()
+        courses = Classes.objects.all()
         course_list = []
         for course in courses:
             single_course = (course.id, course.course_name)

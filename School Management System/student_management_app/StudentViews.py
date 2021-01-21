@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage #To upload Profile Pictu
 from django.urls import reverse
 import datetime # To Parse input DateTime into Python Date Time Object
 
-from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, FeedBackStudent, StudentResult
+from student_management_app.models import CustomUser, Staffs, Classes, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, FeedBackStudent, StudentResult
 
 
 def student_home(request):
@@ -14,7 +14,7 @@ def student_home(request):
     attendance_present = AttendanceReport.objects.filter(student_id=student_obj, status=True).count()
     attendance_absent = AttendanceReport.objects.filter(student_id=student_obj, status=False).count()
 
-    course_obj = Courses.objects.get(id=student_obj.course_id.id)
+    course_obj = Classes.objects.get(id=student_obj.course_id.id)
     total_subjects = Subjects.objects.filter(course_id=course_obj).count()
 
     subject_name = []
@@ -44,7 +44,7 @@ def student_home(request):
 def student_view_attendance(request):
     student = Students.objects.get(admin=request.user.id) # Getting Logged in Student Data
     course = student.course_id # Getting Course Enrolled of LoggedIn Student
-    # course = Courses.objects.get(id=student.course_id.id) # Getting Course Enrolled of LoggedIn Student
+    # course = Classes.objects.get(id=student.course_id.id) # Getting Course Enrolled of LoggedIn Student
     subjects = Subjects.objects.filter(course_id=course) # Getting the Subjects of Course Enrolled
     context = {
         "subjects": subjects
