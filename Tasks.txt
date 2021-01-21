@@ -1,0 +1,4 @@
+-Change Course to Class.
+-Remove Sessions and all the realtions.
+-Remove Relation Between Class(Course) and Subject.
+-Relate Attendance with the Class.
