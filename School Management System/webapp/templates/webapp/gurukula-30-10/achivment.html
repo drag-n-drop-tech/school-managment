@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Anil z" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eduglobal - Education & Courses HTML Template">
+<meta name="keywords" content="academy, course, education, elearning, learning, education html template, university template, college template, school template, online education template, tution center template">
+
+<!-- SITE TITLE -->
+<title>Gurukul- Web Application</title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+<!-- Animation CSS -->
+<link rel="stylesheet" href="assets/css/animate.css" />	
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet" /> 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="assets/css/ionicons.min.css" />
+<link rel="stylesheet" href="assets/css/themify-icons.css" />
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="assets/css/all.min.css" />
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css" />
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.default.min.css" />
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="assets/css/magnific-popup.css" />
+<!-- Style CSS -->
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/responsive.css" />
+<link rel="stylesheet" id="layoutstyle" href="assets/color/theme.css" />
+
+<script>
+var sc_project=11981757; 
+var sc_invisible=1; 
+var sc_security="35d2687e"; 
+var sc_https=1; 
+</script>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="preloader">
+    <span class="spinner"></span>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- END LOADER --> 
+
+<div class="modal fade lr_popup" id="Login" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    	<div class="modal-content border-0">
+    		<div class="modal-body">
+            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="row no-gutters">
+                	<div class="col-lg-7">
+                    	<div class="h-100 background_bg radius_ltlb_5" data-img-src="assets/images/about-image.jpg"></div>
+                    </div>
+                	<div class="col-lg-5">	
+                    	<div class="padding_eight_all">
+                    		<ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="login-tab1" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="signup-tab1" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Teacher</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Admin</h4>
+                                    </div>
+                                    <form method="get" class="login" action="admin/Login.php">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="signup" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Teacher</h4>
+                                    </div>
+                                    <form method="get" class="login" action="teacher/Login.php">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                            </div>
+                        </div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>
+
+<!-- START HEADER -->
+<header class="header_wrap dark_skin">
+	<div class="top-header light_skin bg-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <ul class="contact_detail list_none text-center text-md-left">
+                        <li><a href="#"><i class="ti-mobile"></i>123-456-7890</a></li>
+                        <li><a href="#"><i class="ti-email"></i>info@yourmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                	<div class="d-flex flex-wrap align-items-center justify-content-md-end justify-content-center mt-2 mt-md-0">
+                    	<ul class="list_none social_icons social_white text-center text-md-right">
+                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                        </ul>
+                        <ul class="list_none header_list border_list ml-1">
+                            <li><a href="#" data-toggle="modal" data-target="#Login" class="btn btn-default btn-sm">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg"> 
+            <a class="navbar-brand" href="index.html">
+                <h2>Gurukul</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+                   <li>
+                       <a class="nav-link" href="index.php">Home</a>
+                   </li>
+                   <li>
+                        <a class="nav-link" href="about.php">About Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="facilities.php">School Facilities</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Academics</a>
+                        <div class="dropdown-menu">
+                            <ul> 
+                                <li><a class="dropdown-item nav-link nav_item" href="pre-primary.php">Pre-Primary</a></li> 
+                                <li><a class="dropdown-item nav-link nav_item" href="primary.php">Primary</a></li>
+                                <li><a class="dropdown-item nav-link nav_item" href="high-school.php">High School</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="achivment.php">Achivments</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="gallery.php">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="contact.php">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER --> 
+<!-- START SECTION BREADCRUMB -->
+<section class="page-title-light breadcrumb_section parallax_bg overlay_bg_50" data-parallax-bg-image="assets/images/about_bg.jpg">
+	<div class="container">
+    	<div class="row align-items-center">
+        	<div class="col-sm-6">
+            	<div class="page-title">
+            		<h1>Achivment</h1>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-sm-end">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Achivment</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BANNER -->
+
+<!-- START SECTION EVENT -->
+<section class="small_pt">
+	<div class="container">
+        <div class="row justify-content-center">
+        	<div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="news-events.html"><img src="assets/images/event_img1.jpg" alt="event_img1"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>16</span> May</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">10:00 am 3:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="news-events.html">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="#"><img src="assets/images/event_img2.jpg" alt="event_img2"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>27</span> Apr</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">9:00 am 4:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="#">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="#"><img src="assets/images/event_img3.jpg" alt="event_img3"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>22</span> Jun</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">11:00 am 4:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="#">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="#"><img src="assets/images/event_img4.jpg" alt="event_img4"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>25</span> Jun</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">11:00 am 4:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="#">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.05s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="#"><img src="assets/images/event_img5.jpg" alt="event_img5"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>26</span> Jun</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">11:00 am 4:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="#">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.06s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="#"><img src="assets/images/event_img6.jpg" alt="event_img6"/></a>
+                        <div class="event_date radius_all_5">
+                        	<h5><span>29</span> Jun</h5>
+                            <span class="event_time radius_lbrb_5 bg_default">11:00 am 4:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title"><a href="#">Nullam id varius nunc id varius nunc</a></h4>
+                        <ul class="list_none content_meta">
+                        	<li><i class="ti-user"></i> <a href="#" class="text_default">John Wood</a></li>
+                            <li><i class="ti-location-pin"></i><span class="text_default">New York City</span></li>
+                        </ul>
+                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure anything embarrassing hidden in the middle of text.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- START SECTION EVENT -->
+
+<!-- START FOOTER -->
+<footer class="bg-dark footer_dark">
+	<div class="top_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-8 mb-4 mb-lg-0">
+                	<div class="footer_logo">
+                    	<h2>Gurukula</h2>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum illum voluptatum ex dolores provident, at consequuntur porro alias modi officia.</p>
+                    <ul class="contact_info contact_info_light list_none">
+                        <li>
+                            <i class="fa fa-map-marker-alt "></i>
+                            <address>Califonia Street san Francisco, CA</address>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:info@sitename.com">info@sitename.com</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-mobile-alt"></i>
+                            <p>+ 123 456 7890</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-4 mb-4 mb-lg-0">
+                	<h6 class="widget_title">Useful Links</h6>
+                    <ul class="list_none widget_links links_style1">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="facilities.html">School Facilities</a></li>
+                        <li><a href="pre-primary.html">Academics</a></li>
+                        <li><a href="achivment.html">Achivments</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                	<h6 class="widget_title">Recent News</h6>
+                    <ul class="recent_post border_bottom_dash list_none">
+                    	<li>
+                        	<div class="post_footer">
+                            	<div class="post_img">
+                                	<a href="#"><img src="assets/images/letest_post1.jpg" alt="letest_post1"></a>
+                                </div>
+                                <div class="post_content">
+                                	<h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                                    <span class="post_date">April 14, 2018</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        	<div class="post_footer">
+                            	<div class="post_img">
+                                	<a href="#"><img src="assets/images/letest_post2.jpg" alt="letest_post1"></a>
+                                </div>
+                                <div class="post_content">
+                                	<h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                                    <span class="post_date">April 14, 2018</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        	<div class="post_footer">
+                            	<div class="post_img">
+                                	<a href="#"><img src="assets/images/letest_post3.jpg" alt="letest_post1"></a>
+                                </div>
+                                <div class="post_content">
+                                	<h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                                    <span class="post_date">April 14, 2018</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="widget_title">Subscribe Newsletter</h6>
+                    <p>Contrary to popular belief of lorem Ipsm Latin amet ltin from consectetur industry.</p>
+                    <div class="newsletter_form mb-4">
+                        <form> 
+                            <input type="text" class="form-control" required="" placeholder="Email Address">
+                            <button type="submit" title="Subscribe" class="btn btn-default btn-sm" name="submit" value="Submit">Subscribe</button>
+                        </form>
+                    </div>
+                    <h6 class="widget_title">Follow Us</h6>
+                    <ul class="list_none social_icons radius_social social_white social_style1">
+                    	<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_footer bg_black">
+    	<div class="container">
+        	<div class="row align-items-center">
+            	<div class="col-md-6">
+                	<p class="copyright m-md-0 text-center text-md-left">© 2020 Gurukula International School. Powered by DGTech Solutions.</p>
+                </div>
+                <div class="col-md-6">
+                	<ul class="list_none footer_link text-center text-md-right">
+                    	<li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+<a href="#" class="scrollup"><i class="ion-ios-arrow-up"></i></a> 
+
+<!-- Latest jQuery --> 
+<script src="assets/js/jquery-1.12.4.min.js"></script> 
+<!-- jquery-ui --> 
+<script src="assets/js/jquery-ui.js"></script>
+<!-- popper min js --> 
+<script src="assets/js/popper.min.js"></script>
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="assets/bootstrap/js/bootstrap.min.js"></script> 
+<!-- owl-carousel min js  --> 
+<script src="assets/owlcarousel/js/owl.carousel.min.js"></script> 
+<!-- magnific-popup min js  --> 
+<script src="assets/js/magnific-popup.min.js"></script> 
+<!-- waypoints min js  --> 
+<script src="assets/js/waypoints.min.js"></script> 
+<!-- parallax js  --> 
+<script src="assets/js/parallax.js"></script> 
+<!-- countdown js  --> 
+<script src="assets/js/jquery.countdown.min.js"></script> 
+<!-- jquery.counterup.min js --> 
+<script src="assets/js/jquery.counterup.min.js"></script>
+<!-- imagesloaded js --> 
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<!-- isotope min js --> 
+<script src="assets/js/isotope.min.js"></script>
+<!-- jquery.parallax-scroll js -->
+<script src="assets/js/jquery.parallax-scroll.js"></script>
+<!-- scripts js --> 
+<script src="assets/js/scripts.js"></script>
+
+</body>
+</html>

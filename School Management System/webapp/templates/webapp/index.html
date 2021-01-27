@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Anil z" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eduglobal - Education & Courses HTML Template">
+<meta name="keywords" content="academy, course, education, elearning, learning, education html template, university template, college template, school template, online education template, tution center template">
+
+<!-- SITE TITLE -->
+<title>Gurukula- Web Application</title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+<!-- Animation CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />	
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet" /> 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/ionicons.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}" />
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" />
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.carousel.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.default.min.css' %}" />
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+<!-- Style CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+<link rel="stylesheet" id="layoutstyle" href="{% static 'assets/color/theme.css' %}" />
+
+<script>
+var sc_project=11981757; 
+var sc_invisible=1; 
+var sc_security="35d2687e"; 
+var sc_https=1; 
+</script>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="preloader">
+    <span class="spinner"></span>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- END LOADER --> 
+
+<!--
+<div class="alertbox">
+    <div class="alert bg_danger" role="alert">
+        <div class="container">
+            <div class="row">				
+                <div class="col-md-12 text-center">
+                	<div class="alertbox_content">
+                        <span>Unlimited online course &amp; video tutorials downloads! <a href="#"><u>Get 30% off</u></a></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	
+</div>
+-->
+
+{% include './login-popup.html' %}
+
+<!-- START HEADER -->
+<header class="header_wrap dark_skin">
+	{% include './header.html' %}
+    
+    <div class="container">
+        <nav class="navbar navbar-expand-lg"> 
+            <a class="navbar-brand" href="">
+                <img src="{% static 'assets/images/logo.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+                   <li>
+                       <a class="nav-link" href="/">Home</a>
+                   </li>
+                   <li>
+                        <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/facilities">School Facilities</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle nav-link active" href="#" data-toggle="dropdown">Academics</a>
+                        <div class="dropdown-menu">
+                            <ul> 
+                                <li><a class="dropdown-item nav-link nav_item" href="/pre-primary">Pre-Primary</a></li> 
+                                <li><a class="dropdown-item nav-link nav_item active" href="/primary">Primary</a></li>
+                                <li><a class="dropdown-item nav-link nav_item" href="/high-school">High School</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/contactus">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER --> 
+<div class="news_ticker bg-warning">
+	<div class="container">
+    <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+        <a href="pre-" target="_blank">Pre-Primary</a> ||
+        <a href="" target="_blank">Primary and Higher Primary</a> || 
+        <a href="high-" target="_blank">High School</a>
+    </marquee>
+    </div>
+</div>
+<!-- START SECTION BANNER -->
+<section class="banner_section p-0 full_screen">
+    <div id="carouselExampleFade" class="banner_content_wrap carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active background_bg overlay_bg_40" data-img-src="{% static 'assets/images/slider/slider-01.jpeg' %}">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 col-sm-12 text-center">
+                            <div class="banner_content animation text_white" data-animation="fadeIn" data-animation-delay="0.8s">
+                                <h2 class="font-weight-bold animation text-uppercase" data-animation="fadeInDown" data-animation-delay="1s">Welcome To Gurukula</h2>
+                                <p class="animation" data-animation="fadeInUp" data-animation-delay="1.5s">International School  was founded in 2005</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END CONTAINER-->
+                </div>
+            </div>
+            <div class="carousel-item background_bg overlay_bg_40" data-img-src="{% static 'assets/images/slider/slider-02.jpeg' %}">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-sm-12 text-center">
+                                <div class="banner_content animation text_white" data-animation="fadeIn" data-animation-delay="0.8s">
+                                    <h2 class="font-weight-bold animation text-uppercase" data-animation="fadeInDown" data-animation-delay="1s">Dedication to academic</h2>
+                                    <p class="animation" data-animation="fadeInUp" data-animation-delay="1.5s"> excellence our innovative approach to learning and our passion for nurturing creativity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- END CONTAINER-->
+                </div>
+            </div>
+            <div class="carousel-item background_bg overlay_bg_40" data-img-src="{% static 'assets/images/slider/slider-03.jpeg' %}">
+                <div class="banner_slide_content">
+                    <div class="container"><!-- STRART CONTAINER -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-sm-12 text-center">
+                                <div class="banner_content animation text_white" data-animation="fadeIn" data-animation-delay="0.8s">
+                                    <h2 class="font-weight-bold animation text-uppercase" data-animation="fadeInDown" data-animation-delay="1s">We are having 10 school bus</h2>
+                                    <p class="animation" data-animation="fadeInUp" data-animation-delay="1.5s"> which runs in 10 different routes to bring the student from the door steps</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- END CONTAINER-->
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav carousel_style1">
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <i class="ion-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <i class="ion-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BANNER -->
+<!-- START SECTION ABOUT -->
+<section class="large_pt large_pb overflow-hidden">
+	<div class="container-fluid p-0">
+    	<div class="row no-gutters align-items-center">
+        	<div class="col-md-6">
+            	<div class="box_shadow1 bg-white overlap_section padding_eight_all">
+                	<div class="animation" data-animation="fadeInLeft" data-animation-delay="0.02s">
+                        <div class="heading_s1"> 
+                          <h2>About Us</h2>
+                        </div>
+                        <p>“ Dedication to academic excellence our innovative approach to learning and our passion for nurturing creativity ”</p>
+                        <p>
+                            The system of education for tiny-tots and young children has been widely recognized as an ideal system to guide the children in their primary age and prepare for them for higher education and to make them good citizen of the country.
+                        </p>
+                        <ul class="list_none list_item">
+                        	<li>
+                            	<div class="counter_content">
+                                    <h3 class="h1 text_danger"><span class="counter">2005</span></h3>
+                                    <h6>founded</h6>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="counter_content">
+                                    <h3 class="h1 text_light_green"><span class="counter">1500</span>+</h3>
+                                    <h6>Students</h6>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="text-left animation" data-animation="fadeInUp" data-animation-delay="0.07s">
+                	<div class="medium_divider"></div>
+                	<a href="/aboutus" class="btn btn-default">Know More <i class="ion-ios-arrow-thin-right ml-1"></i></a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="col-md-6">
+            	<div class="animation" data-animation="fadeInRight" data-animation-delay="0.03s">
+                	<div class="overlay_bg_10 about_img z_index_minus1">	
+                    	<img class="w-100" src="{% static 'assets/images/video-bg.png' %}" alt="about_img"/>
+                    </div>
+                	<a href="Video/gurukula-school-intro.mp4" class="video_popup video_play">
+                    	<span class="ripple"><i class="ion-play ml-1"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION ABOUT -->
+<!-- START SECTION FEATURE -->
+<section class="bg_gray">
+    <div class="container">
+    	<div class="row justify-content-center">
+        	<div class="col-xl-6 col-lg-8">
+            	<div class="text-center animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                    <div class="heading_s1 text-center">
+                        <h2>School Facilities</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="icon_box text-center bg-white icon_box_style2 box_shadow2 radius_all_10 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
+                	<div class="box_icon bg_danger mb-3">
+                		<img src="{% static 'assets/images/Libraries.png' %}" alt="book" />
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Libraries</h5>
+                        <p>The school boasts of two well-stocked libraries with an impressive index of titles, covering fiction and non-fiction, periodicals, magazines, and newspapers</p>
+                    </div>
+                    <br>
+                    <a href="" class="btn btn-default btn-sm">More</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            	<div class="icon_box text-center bg-white icon_box_style2 box_shadow2 radius_all_10 animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                	<div class="box_icon bg_default mb-3">
+                		<img src="{% static 'assets/images/Interactive Screens.png' %}" alt="globe" />
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Interactive Screens in classrooms</h5>
+                        <p>The interactive flat panel smart board, displays have been  installed in the classrooms. It is a leading educational interactive</p>
+                    </div>
+                    <br>
+                    <a href="" class="btn btn-default btn-sm">More</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            	<div class="icon_box text-center bg-white icon_box_style2 box_shadow2 radius_all_10 animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                	<div class="box_icon bg_light_green mb-3">
+                        <img src="{% static 'assets/images/Laboratories.png' %}" alt="instructors" />
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Science Laboratories</h5>
+                        <p>To provide hands-on practical experience to our students, excellent equipment and facilities are provided in separate laboratories for Physics</p>
+                    </div>
+                    <br>
+                    <a href="" class="btn btn-default btn-sm">More</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section> 
+<!-- END SECTION FEATURE -->
+
+<!-- START SECTION EVENT -->
+<section>
+	<div class="container">
+    	<div class="row justify-content-center">
+        	<div class="col-xl-6 col-lg-8">
+            	<div class="text-center animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                    <div class="heading_s1 text-center">
+                        <h2>Academics</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        	<div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="/page/pre-primary"><img src="{% static 'assets/images/pre-primary.jpg' %}" alt="pre-primary"/></a>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title content_meta"><a href="/page/pre-primary">Pre-Primary</a></h4>
+                        <p>Nursery school provides the building blocks for numeracy and literacy learning, we prepare children to be emotionally ready for primary school. In the nursery children are taught how to interact with each other and</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="/page/primary"><img src="{% static 'assets/images/primary.jpg' %}" alt="primary"/></a>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title content_meta"><a href="/page/primary">Primary & Higher Primary</a></h4>
+                        <p>Our personalized primary and higher-primary school program gives your child a head- start in languages and learning. As they learning. We provide our students with a safe and happy environment to learn and grow</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+            	<div class="content_box event_box radius_all_10 box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                	<div class="content_img radius_ltrt_10">
+                    	<a href="/page/high-school"><img src="{% static 'assets/images/high-school.jpg' %}" alt="high-school"/></a>
+                    </div>
+                    <div class="content_desc">
+                    	<h4 class="content_title content_meta"><a href="/page/high-school">High School</a></h4>
+                        <p>High school is a kind of school, a place where people go to learn skills for future jobs… a high school is a school that students go to usually for grades 9 through 12, from the ages of about 14-15 to about 17-18</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- START SECTION EVENT -->
+<!-- START SECTION COUNTER -->
+<section class="parallax_bg overlay_bg_blue_70" data-parallax-bg-image="{% static 'assets/images/counter_bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-6 ">
+                <div class="box_counter counter_style1 text_white text-center animation" data-animation="fadeInUp" data-animation-delay="0.02s">
+                	<div class="counter_icon">
+                    	<img src="{% static 'assets/images/counter_icon1.png' %}' %}" alt="counter_icon1" />
+                    </div>
+                    <div class="counter_content">
+                        <h3 class="counter_text"><span class="counter">1500</span>+</h3>
+                        <p>Students</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 ">
+                <div class="box_counter counter_style1 text_white text-center animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                    <div class="counter_icon">
+                    	<img src="{% static 'assets/images/counter_icon2.png' %}' %}" alt="counter_icon2" />
+                    </div>
+                    <div class="counter_content">
+                        <h3 class="counter_text"><span class="counter">70</span></h3>
+                        <p>Courses</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 ">
+                <div class="box_counter counter_style1 text_white text-center animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                    <div class="counter_icon">
+                    	<img src="{% static 'assets/images/counter_icon3.png' %}" alt="counter_icon3" />
+                    </div>
+                    <div class="counter_content">
+                        <h3 class="counter_text"><span class="counter">50</span>+</h3>
+                        <p>Certified teachers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 ">
+                <div class="box_counter counter_style1 text_white text-center animation" data-animation="fadeInUp" data-animation-delay="0.05s">
+                	<div class="counter_icon">
+                    	<img src="{% static 'assets/images/counter_icon4.png' %}" alt="counter_icon4" />
+                    </div>
+                    <div class="counter_content">
+                        <h3 class="counter_text"><span class="counter">1200</span>+</h3>
+                        <p>Award Winning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION COUNTER -->
+ 
+ <!-- START SECTION TESTIMONIAL -->
+<section>
+	<div class="container">
+    	<div class="row justify-content-center">
+        	<div class="col-xl-6 col-lg-8">
+            	<div class="text-center animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                    <div class="heading_s1 text-center">
+                        <h2>Parents Say!</h2>
+                    </div>
+                    
+                    <div class="small_divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        	<div class="col-12 animation" data-animation="fadeInUp" data-animation-delay="0.02s">
+            	<div class="testimonial_slider testimonial_style1 carousel_slider owl-carousel owl-theme" data-margin="30" data-loop="true" data-autoplay="true" data-dots="false" data-responsive='{"0":{"items": "1"}, "576":{"items": "2"}, "1199":{"items": "2"}}'>
+                    <div class="testimonial_box">
+                        <div class="testimonial_img">
+                            <img class="radius_all_5" src="{% static 'assets/images/male.png' %}' %}" alt="client">
+                        </div>
+                        <div class="testi_meta">
+                        	<div class="testi_user">
+                            	<h6>Prakash Raj</h6>
+                            </div>
+                            <div class="testi_desc">
+                            	<p>It is one of the best school. All  round development with right value system happens in this school. My daughters are studying in this school and I am very happy with the progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_box">
+                        <div class="testimonial_img">
+                            <img class="radius_all_5" src="{% static 'assets/images/male.png' %}' %}" alt="client">
+                        </div>
+                        <div class="testi_meta">
+                        	<div class="testi_user">
+                            	<h6>Raghavendra J S</h6>
+                            	
+                            </div>
+                            <div class="testi_desc">
+                            	<p>The best school.. Wonderful campus.. Experienced faculties..!! I'm a proud alumna of this school..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_box">
+                        <div class="testimonial_img">
+                            <img class="radius_all_5" src="{% static 'assets/images/female.png' %}" alt="client">
+                        </div>
+                        <div class="testi_meta">
+                        	<div class="testi_user">
+                            	<h6>Prakruti Das</h6>
+                            	
+                            </div>
+                            <div class="testi_desc">
+                            	<p>One of the best school in hassan (D) it's has very good infrastructure good staffs well educated teachers gives more importance on behavior of students it's a best place to study.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_box">
+                        <div class="testimonial_img">
+                            <img class="radius_all_5" src="{% static 'assets/images/male.png' %}" alt="client">
+                        </div>
+                        <div class="testi_meta">
+                        	<div class="testi_user">
+                            	<h6>Lakshman B G</h6>
+                            	
+                            </div>
+                            <div class="testi_desc">
+                            	<p>Highly qualified and experienced staff who make everyone bright and brilliant... Best school..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION TESTIMONIAL -->
+
+<!-- START FOOTER -->
+{% include './footer.html' %}
+
+<!-- END FOOTER -->
+
+<a href="#" class="scrollup"><i class="ion-ios-arrow-up"></i></a> 
+
+<!-- Latest jQuery --> 
+<script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script> 
+<!-- jquery-ui --> 
+<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+<!-- popper min js --> 
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script> 
+<!-- owl-carousel min js  --> 
+<script src="{% static 'assets/owlcarousel/js/owl.carousel.min.js' %}"></script> 
+<!-- magnific-popup min js  --> 
+<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script> 
+<!-- waypoints min js  --> 
+<script src="{% static 'assets/js/waypoints.min.js' %}"></script> 
+<!-- parallax js  --> 
+<script src="{% static 'assets/js/parallax.js' %}"></script> 
+<!-- countdown js  --> 
+<script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script> 
+<!-- jquery.counterup.min js --> 
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<!-- imagesloaded js --> 
+<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+<!-- isotope min js --> 
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<!-- jquery.parallax-scroll js -->
+<script src="{% static 'assets/js/jquery.parallax-scroll.js' %}"></script>
+<!-- scripts js --> 
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+</body>
+</html>

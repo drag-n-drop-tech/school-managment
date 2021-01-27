@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Anil z" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eduglobal - Education & Courses HTML Template">
+<meta name="keywords" content="academy, course, education, elearning, learning, education html template, university template, college template, school template, online education template, tution center template">
+
+<!-- SITE TITLE -->
+<title>Gurukul- Web Application</title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+<!-- Animation CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />	
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet" /> 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/ionicons.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}" />
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" />
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.carousel.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.default.min.css' %}" />
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+<!-- Style CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+<link rel="stylesheet" id="layoutstyle" href="{% static 'assets/color/theme.css' %}" />
+
+<script>
+var sc_project=11981757; 
+var sc_invisible=1; 
+var sc_security="35d2687e"; 
+var sc_https=1; 
+</script>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="preloader">
+    <span class="spinner"></span>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- END LOADER --> 
+
+<div class="modal fade lr_popup" id="Login" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    	<div class="modal-content border-0">
+    		<div class="modal-body">
+            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="row no-gutters">
+                	<div class="col-lg-7">
+                    	<div class="h-100 background_bg radius_ltlb_5" data-img-src="{% static 'assets/images/popup.png' %}"></div>
+                    </div>
+                	<div class="col-lg-5">	
+                    	<div class="padding_eight_all">
+                    		<ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="login-tab1" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="signup-tab1" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Teacher</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Admin</h4>
+                                    </div>
+                                    <form method="get" class="login" action="">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="signup" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Teacher</h4>
+                                    </div>
+                                    <form method="get" class="login" action="">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                            </div>
+                        </div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>
+<!-- START HEADER -->
+<header class="header_wrap dark_skin">
+	{% include './header.html' %}
+    <div class="container">
+        <nav class="navbar navbar-expand-lg"> 
+            <a class="navbar-brand" href="">
+                <img src="{% static 'assets/images/logo.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+                   <li>
+                       <a class="nav-link" href="/">Home</a>
+                   </li>
+                   <li>
+                        <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/facilities">School Facilities</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle nav-link active" href="#" data-toggle="dropdown">Academics</a>
+                        <div class="dropdown-menu">
+                            <ul> 
+                                <li><a class="dropdown-item nav-link nav_item" href="/pre-primary">Pre-Primary</a></li> 
+                                <li><a class="dropdown-item nav-link nav_item active" href="/primary">Primary</a></li>
+                                <li><a class="dropdown-item nav-link nav_item" href="/high-school">High School</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/contactus">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER --> 
+<!-- START SECTION BREADCRUMB -->
+<section class="page-title-light breadcrumb_section parallax_bg overlay_bg_50" data-parallax-bg-image="{% static 'assets/images/about_bg.jpg' %}">
+	<div class="container">
+    	<div class="row align-items-center">
+        	<div class="col-sm-6">
+            	<div class="page-title">
+            		<h1>Contact Us</h1>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-sm-end">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BANNER -->
+
+<!-- START SECTION CONTACT -->
+<section class="small_pb">
+	<div class="container">	
+    	<div class="row justify-content-center">
+        	<div class="col-xl-6 col-lg-8">
+            	<div class="text-center animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                    <div class="heading_s1 text-center">
+                        <h2>Get In Touch</h2>
+                    </div>
+                    <div class="small_divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-12">
+            	<div class="box_shadow1 radius_all_10">
+                	<div class="row no-gutters">
+                    	<div class="col-md-6 animation" data-animation="fadeInLeft" data-animation-delay="0.02s">
+                        	<div class="padding_eight_all">
+                                <div class="field_form">
+                                    <form method="post" name="enq">
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <input required="required" placeholder="Enter Name" id="first-name" class="form-control" name="name" type="text">
+                                             </div>
+                                            <div class="form-group col-12">
+                                                <input required="required" placeholder="Enter Email" id="email" class="form-control" name="email" type="email">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <input required="required" placeholder="Enter Phone No." id="phone" class="form-control" name="phone" type="tel">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <input placeholder="Enter Subject" id="subject" class="form-control" name="subject" type="text">
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                <textarea required="required" placeholder="Message" id="description" class="form-control" name="message" rows="3"></textarea>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <button type="submit" title="Submit Your Message!" class="btn btn-default" id="submitButton" name="submit" value="Submit">Submit</button>
+                                            </div>
+                                            <div class="col-lg-12 text-center">
+                                                <div id="alert-msg" class="alert-msg text-center"></div>
+                                            </div>
+                                        </div>
+                                    </form>		
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 animation" data-animation="fadeInRight" data-animation-delay="0.4s">
+                            <div class="contact_map map_radius_rtrb overflow-hidden h-100">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.253082314814!2d76.17693711482657!3d13.396649590578011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x77df2613c77a1111!2sGurukula%20International%20School!5e0!3m2!1sen!2sin!4v1589187840454!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION CONTACT -->
+
+<!-- START SECTION CONTACT -->
+<section class="small_pt">
+	<div class="container">	
+    	<div class="row justify-content-center">
+        	<div class="col-xl-6 col-lg-8">
+            	<div class="text-center animation" data-animation="fadeInUp" data-animation-delay="0.01s">
+                    <div class="heading_s1 text-center">
+                        <h2>Contact Information</h2>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="overlay_bg_danger_90 icon_box text-center text_white radius_all_10 background_bg animation" data-img-src="{% static 'assets/images/address_img.jpg' %}" data-animation="fadeInUp" data-animation-delay="0.02s">
+                	<div class="box_icon mb-3">
+                		<img src="{% static 'assets/images/map_icon.png' %}" alt="map_icon">
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Address</h5>
+                        <p>Banavara, Arsikere Tq, Hassan District</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            	<div class="overlay_bg_light_green_90 icon_box text-center text_white radius_all_10 background_bg animation" data-img-src="{% static 'assets/images/call_img.jpg' %}" data-animation="fadeInUp" data-animation-delay="0.03s">
+                	<div class="box_icon mb-3">
+                		<img src="{% static 'assets/images/phone_icon.png' %}" alt="phone_icon">
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Call Us</h5>
+                        <p>+91 9886271556</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            	<div class="overlay_bg_default_90 icon_box text-center text_white radius_all_10 background_bg animation" data-img-src="{% static 'assets/images/email_img.jpg' %}" data-animation="fadeInUp" data-animation-delay="0.04s">
+                	<div class="box_icon mb-3">
+                        <img src="{% static 'assets/images/email_icon.png' %}" alt="email_icon">
+                    </div>
+                    <div class="intro_desc">
+                        <h5>Email</h5>
+                        <p>
+gis.bnr@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION CONTACT -->
+
+<!-- START FOOTER -->
+{% include './footer.html'%}
+<!-- END FOOTER -->
+
+<a href="#" class="scrollup"><i class="ion-ios-arrow-up"></i></a> 
+
+<!-- Latest jQuery --> 
+<script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script> 
+<!-- jquery-ui --> 
+<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+<!-- popper min js --> 
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script> 
+<!-- owl-carousel min js  --> 
+<script src="{% static 'assets/owlcarousel/js/owl.carousel.min.js' %}"></script> 
+<!-- magnific-popup min js  --> 
+<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script> 
+<!-- waypoints min js  --> 
+<script src="{% static 'assets/js/waypoints.min.js' %}"></script> 
+<!-- parallax js  --> 
+<script src="{% static 'assets/js/parallax.js' %}"></script> 
+<!-- countdown js  --> 
+<script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script> 
+<!-- jquery.counterup.min js --> 
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<!-- imagesloaded js --> 
+<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+<!-- isotope min js --> 
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<!-- jquery.parallax-scroll js -->
+<script src="{% static 'assets/js/jquery.parallax-scroll.js' %}"></script>
+<!-- scripts js --> 
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+</body>
+</html>

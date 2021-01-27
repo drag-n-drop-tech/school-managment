@@ -82,17 +82,17 @@
               <a href="{{ manage_course }}" class="nav-link {% if request.path == manage_course %} active {% endif %} {% if request.path == edit_course %} active {% endif %}">
                 <i class="nav-icon fas fa-chalkboard"></i>
                 <p>
-                  Manage Course
+                  Manage Class
                 </p>
               </a>
             </li>
 
             <li class="nav-item">
-            {% url 'add_course' as add_course %}
-              <a href="{{ add_course }}" class="nav-link {% if request.path == add_course %} active {% endif %}">
+            {% url 'add_class' as add_class %}
+              <a href="{{ add_class }}" class="nav-link {% if request.path == add_course %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Add Course
+                  Add Class
                 </p>
               </a>
             </li>
@@ -117,29 +117,35 @@
                 </p>
               </a>
             </li>
-
-
             <li class="nav-item">
-              {% url 'manage_session' as manage_session %}
-              {% url 'edit_session' session_id=id as edit_session %}
-              <a href="{{ manage_session }}" class="nav-link {% if request.path == manage_session %} active {% endif %} {% if request.path == edit_session %} active {% endif %}">
-                <i class="nav-icon fas fa-graduation-cap"></i>
-                <p>
-                  Manage Session 
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              {% url 'add_session' as add_session %}
-              <a href="{{ add_session }}" class="nav-link {% if request.path == add_session %} active {% endif %}">
+              {% url 'newParent' as newParent %}
+              <a href="{{ newParent }}" class="nav-link {% if request.path == add_subject %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Add Session
+                  Add Prarent
                 </p>
               </a>
             </li>
+{% comment %} 
+            <li class="nav-item">
+              {% url 'addStudent' as addStudent %}
+              <a href="{{ addStudent }}" class="nav-link {% if request.path == add_subject %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Add Student
+                </p>
+              </a>
+            </li> {% endcomment %}
 
+            <li class="nav-item">
+              {% url 'admin_view_attendance' as admin_view_attendance %}
+              <a href="{{ admin_view_attendance }}" class="nav-link {% if request.path == admin_view_attendance %} active {% endif %}">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Add Attendance
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               {% url 'admin_view_attendance' as admin_view_attendance %}
@@ -147,6 +153,26 @@
                 <i class="nav-icon fas fa-calendar-alt"></i>
                 <p>
                   View Attendance
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'admin_view_attendance' as admin_view_attendance %}
+              <a href="{{ admin_view_attendance }}" class="nav-link {% if request.path == admin_view_attendance %} active {% endif %}">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Add Fee Types
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'admin_view_attendance' as admin_view_attendance %}
+              <a href="{{ admin_view_attendance }}" class="nav-link {% if request.path == admin_view_attendance %} active {% endif %}">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Add Fee Collections
                 </p>
               </a>
             </li>

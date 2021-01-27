@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 # Overriding the Default Django Auth User and adding One More Field (user_type)
 class CustomUser(AbstractUser):
-    user_type_data = ((1, "HOD"), (2, "Staff"), (3, "Student"))
+    user_type_data = ((1, "HOD"), (2, "Staff"), (3, "parent"))
     user_type = models.CharField(default=1, choices=user_type_data, max_length=10)
 
 
@@ -37,23 +37,35 @@ class Classes(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
 
-  
+    def __str__(self):
+        return self.class_name
+    
 
 class Subjects(models.Model):
     id =models.AutoField(primary_key=True)
     subject_name = models.CharField(max_length=255)
-    staff_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
 
 
+class Parents(models.Model):
+    parent_name = models.CharField(max_length=50)
+    parent_email = models.EmailField(blank=True, null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    photo = models.FileField(blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    occupation=models.CharField(blank=True, null=True, max_length=50)
+    
+    def __str__(self):
+        return self.parent_name
+
 
 class Students(models.Model):
     id = models.AutoField(primary_key=True)
-    admin = models.OneToOneField(CustomUser, on_delete = models.CASCADE)
     gender = models.CharField(max_length=50)
     profile_pic = models.FileField()
+    parent=models.ForeignKey(Parents, on_delete=models.CASCADE, null=True)
     address = models.TextField()
     ClassNo = models.ForeignKey(Classes, on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -179,5 +191,4 @@ def save_user_profile(sender, instance, **kwargs):
     if instance.user_type == 3:
         instance.students.save()
     
-
 
