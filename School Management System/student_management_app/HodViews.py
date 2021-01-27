@@ -322,21 +322,29 @@ def edit_student(request, student_id):
     # Adding Student ID into Session Variable
     request.session['student_id'] = student_id
 
-    student = Students.objects.get(admin=student_id)
-    form = EditStudentForm()
+    student = Students.objects.get(id=student_id)
+    form = EditStudentForm(request.POST or None, instance=student)
+    if request.method == 'POST':
+        print('I am her e')
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('manage_student'))
+        else:
+            print(form.errors())
+            return HttpResponse('Form is not valid')
     # Filling the form with Data from Database
-    form.fields['email'].initial = student.admin.email
-    form.fields['username'].initial = student.admin.username
-    form.fields['first_name'].initial = student.admin.first_name
-    form.fields['last_name'].initial = student.admin.last_name
-    form.fields['address'].initial = student.address
-    form.fields['class_id'].initial = student.class_id.id
-    form.fields['gender'].initial = student.gender
-    form.fields['session_year_id'].initial = student.session_year_id.id
+    # form.fields['email'].initial = student.admin.email
+    # form.fields['username'].initial = student.admin.username
+    # form.fields['first_name'].initial = student.admin.first_name
+    # form.fields['last_name'].initial = student.admin.last_name
+    # form.fields['address'].initial = student.address
+    # form.fields['class_id'].initial = student.class_id.id
+    # form.fields['gender'].initial = student.gender
+    # form.fields['session_year_id'].initial = student.session_year_id.id
 
     context = {
         "id": student_id,
-        "username": student.admin.username,
+        "name": student.full_name,
         "form": form
     }
     return render(request, "hod_template/edit_student_template.html", context)
@@ -406,7 +414,7 @@ def edit_student_save(request):
 
 
 def delete_student(request, student_id):
-    student = Students.objects.get(admin=student_id)
+    student = Students.objects.get(id=student_id)
     try:
         student.delete()
         messages.success(request, "Student Deleted Successfully.")
