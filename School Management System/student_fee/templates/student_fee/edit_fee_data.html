@@ -1,7 +1,7 @@
 {% extends 'hod_template/base_template.html' %}
 
 {% block page_title %}
-    Add Fee Data
+    Update Fee Types
 {% endblock page_title %}
 
 {% block main_content %}
@@ -16,7 +16,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Fee Data</h3>
+                        <h3 class="card-title">Update Fee Types</h3>
                         
                     </div>
                     <!-- /.card-header -->
@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Fee Description </label>
-                                <input type="text" class="form-control" name="fee_description" placeholder="Enter Class" value="{{fee.fee_description}}">
+                                <textarea type="text" class="form-control" rows='3' name="fee_description" placeholder="Enter Class" >{{fee.fee_description}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Fee Amount </label>

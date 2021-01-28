@@ -68,7 +68,7 @@ def delete_fee_data(request, id):
 
     
 
-def create_fees_collection(request):
-    if request.method == 'POST':
-        pass
-    return HttpResponse('')
+def fees_collection_list(request):
+    context = {}
+    collections = fees_collection.objects.all()
+    return render(request, 'student_fee/edit_fee_data.html', context)

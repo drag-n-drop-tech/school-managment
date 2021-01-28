@@ -46,3 +46,7 @@ class fees_collection_items(models.Model):
     created_by = models.CharField(max_length=25,default="Anonymous")
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.CharField(max_length=25,default="Anonymous")
+
+
+
+    
