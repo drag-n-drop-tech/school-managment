@@ -1,0 +1,139 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+   Fee Collection
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Fee Collection</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Student">Student</label>
+                                    <select name="Student" id="Student" class="custom-select">
+                                        <option value="">Select Student</option>
+                                        <option value="Samir">Samir</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Student">Class</label>
+                                    <input type="text" class="form-control" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Student">Parent</label>
+                                    <input type="text" class="form-control" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Slno</th>
+                                    <th class="w-50">Particulars</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Tax</th>
+                                    <th>Amount</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="addRow">
+                                    <td>1</td>
+                                    <td>
+                                        <input type="text" class="form-control Particulars form-control-sm">
+                                    </td>
+                                    <td >
+                                        <input type="number" class="form-control Qty form-control-sm">
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control Price form-control-sm">
+                                    </td>
+                                    <td>
+                                        <select name="GST" id="GST" class="custom-select Tax form-control-sm">
+                                            <option value="">Select Tax</option>
+                                            <option value="5">5</option>
+                                            <option value="12">12</option>
+                                            <option value="18">18</option>
+                                            <option value="28">28</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control Amount form-control-sm">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary addBtn btn-sm">
+                                           <i class="fa fa-plus-circle"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+    {% block custom_js %}
+    {% comment %} Checking if email and username already exists or not usin Ajax {% endcomment %}
+
+    <script>
+        function deleteRow(trash) {
+                $(trash).closest('tr').remove();
+            };
+        $(document).ready(function () {
+            // keyup event will be triggered when user leaves keyboard
+            function formatRows(Particulars, Qty, Price,Tax,Amount) {
+                return `<tr>
+                    <th>1</th>
+                    <th class="w-50">${Particulars}</th>
+                    <th>${Qty}</th>
+                    <th>${Price}</th>
+                    <th>${Tax}</th>
+                    <th>${Amount}</th>
+                    <th><a href="#" class="btn btn-danger btn-sm" onClick="deleteRow(this)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </th>
+                    </tr>`;
+            };
+
+            
+
+            function addRow() {
+                var Particulars = $('.Particulars').val();
+                var Qty = $('.Qty').val();
+                var Price = $('.Price').val();
+                var Tax = $('.Tax').val();
+                var Amount = $('.Amount').val();
+                $(formatRows(Particulars, Qty, Price,Tax,Amount)).insertAfter('#addRow');
+                $(input).val('');
+            }
+
+            $('.addBtn').click(function () {
+                addRow();
+            });
+        })
+    </script>
+
+  {% endblock custom_js %}

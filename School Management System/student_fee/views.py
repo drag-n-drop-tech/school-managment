@@ -6,6 +6,9 @@ from django.urls import reverse
 from .models import fees_collection, fees_collection_items, fees_data
 
 
+def fee_collection(request):
+    return render(request,'fee_collection_template.html')
+
 def fee_list(request):
     context = {}
     context['feeTable'] = fees_data.objects.all()
