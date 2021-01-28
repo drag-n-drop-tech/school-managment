@@ -8,7 +8,7 @@ from django.core import serializers
 import json
 
 from student_management_app.models import CustomUser,Parents, Staffs, Classes, Subjects, Students,  FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
-from .forms import AddStudentForm, EditStudentForm, NewStudentForm
+from .forms import AddStudentForm, EditStudentForm, NewStudentForm, day_option_form
 
 
 def admin_home(request):
@@ -730,7 +730,13 @@ def addStudent(request):
     return render(request, 'hod_template/addStudent.html')
 
 def add_timetable(request):
-    return render(request,'hod_template/student_timetable_add_template.html')
+    context ={
+        'form': day_option_form()
+    }
+    context['classes'] = Classes.objects.all()
+    context['subjects'] = Subjects.objects.all()
+    context['staffs'] = Staffs.objects.all()
+    return render(request,'hod_template/student_timetable_add_template.html', context)
 
 
 

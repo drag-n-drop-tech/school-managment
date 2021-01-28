@@ -1,7 +1,7 @@
 from django import forms 
 from django.forms import Form
 from student_management_app.models import Classes
-from .models import Students
+from .models import Students, student_timetable
 
 class DateInput(forms.DateInput):
     input_type = "date"
@@ -103,3 +103,49 @@ class EditStudentForm(forms.ModelForm):
     # # session_start_year = forms.DateField(label="Session Start", widget=DateInput(attrs={"class":"form-control"}))
     # # session_end_year = forms.DateField(label="Session End", widget=DateInput(attrs={"class":"form-control"}))
     # profile_pic = forms.FileField(label="Profile Pic", required=False, widget=forms.FileInput(attrs={"class":"form-control"}))
+
+
+class day_option_form(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(day_option_form, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+    class Meta:
+        model = student_timetable
+        fields = ['day']
+        labels = {
+            'day': 'Select Day'
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

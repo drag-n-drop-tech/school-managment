@@ -1,0 +1,153 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Add Assignment
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <form method="POST" action="{% url 'staff_add_result_save' %}">
+                    {% csrf_token %}
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Assignment</h3>
+                    </div>
+                    <!-- /.card-header -->
+
+                                {% comment %} Display Messages {% endcomment %}
+                                {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+
+                        <div class="card-body">
+                            <nav class="nav nav-pills nav-justified">
+                                <a class="nav-item nav-link active" href="#AssignmentDetails" role="tab" data-toggle="tab">Assignment Details</a>
+                                <a class="nav-item nav-link" href="#AssignmentFiles" role="tab" data-toggle="tab">Assgigment Files</a>
+                              </nav>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="AssignmentDetails" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                             <label for="">Select Class</label>
+                                             <select name="Class" id="Class" class="form-control">
+                                                 <option value="">Select Class</option>
+                                             </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                             <label for="">Select Subject</label>
+                                             <select name="Subject" id="Subject" class="form-control">
+                                                 <option value="">Select Subject</option>
+                                             </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="Title">Title</label>
+                                                <input type="text" class="form-control" id="Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="Description">Description</label>
+                                                <textarea type="text" class="form-control" rows="4" id="Description" placeholder="Enter the Assignment Description(optional)"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="AssignmentFiles" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="AssignmntFile">Assignment File</label>
+                                            <div class="input-group">
+                                                <input type="file" class="form-control" id="AssignmentFile">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary">
+                                                        Upload File
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Slno</th>
+                                                        <th>File</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="button" class="btn btn-primary" id="fetch_student">Fetch Student</button>
+                        </div>
+
+                        {% comment %} Displaying Students Here {% endcomment %}
+
+                        <div class="card-footer" id="student_data">
+                        </div> 
+
+                    </div>
+                    </form>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+{% block custom_js %}
+
+<script>
+    $(document).ready(function(){
+        
+    })
+</script>
+{% endblock custom_js %}
