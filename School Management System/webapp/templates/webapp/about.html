@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Anil z" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eduglobal - Education & Courses HTML Template">
+<meta name="keywords" content="academy, course, education, elearning, learning, education html template, university template, college template, school template, online education template, tution center template">
+
+<!-- SITE TITLE -->
+<title>Gurukul- Web Application</title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+<!-- Animation CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />	
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet" /> 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/ionicons.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}" />
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" />
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.carousel.min.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/owlcarousel/css/owl.theme.default.min.css' %}" />
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}" />
+<!-- Style CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+<link rel="stylesheet" id="layoutstyle" href="assets/color/theme.css' %}" />
+
+<script>
+var sc_project=11981757; 
+var sc_invisible=1; 
+var sc_security="35d2687e"; 
+var sc_https=1; 
+</script>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="preloader">
+    <span class="spinner"></span>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- END LOADER --> 
+
+<div class="modal fade lr_popup" id="Login" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    	<div class="modal-content border-0">
+    		<div class="modal-body">
+            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="row no-gutters">
+                	<div class="col-lg-7">
+                    	<div class="h-100 background_bg radius_ltlb_5" data-img-src="{% static 'assets/images/popup.png' %}"></div>
+                    </div>
+                	<div class="col-lg-5">	
+                    	<div class="padding_eight_all">
+                    		<ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="login-tab1" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="signup-tab1" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Teacher</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Admin</h4>
+                                    </div>
+                                    <form method="get" class="login" action="">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="signup" role="tabpanel">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>Login as Teacher</h4>
+                                    </div>
+                                    <form method="get" class="login" action="">
+                                       <input type="text" class="form-control" value="Admin" name="Usertype" hidden>
+                                        <div class="form-group">
+                                            <input type="text" required="" class="form-control" name="Username" placeholder="Username/Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" required="" type="password" name="Password" placeholder="Password">
+                                        </div>
+                                        <div class="login_footer form-group">
+                                            <div class="chek-form mb-3">
+                                                <div class="custome-checkbox">
+                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
+                                                    <label class="form-check-label" for="exampleCheckbox3">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" name="Submit">Log in</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                            </div>
+                        </div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>
+
+<!-- START HEADER -->
+<header class="header_wrap dark_skin">
+	{% include './header.html' %}
+    <div class="container">
+        <nav class="navbar navbar-expand-lg"> 
+            <a class="navbar-brand" href="">
+                <img src="{% static 'assets/images/logo.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+                   <li>
+                       <a class="nav-link" href="/">Home</a>
+                   </li>
+                   <li>
+                        <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/facilities">School Facilities</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle nav-link active" href="#" data-toggle="dropdown">Academics</a>
+                        <div class="dropdown-menu">
+                            <ul> 
+                                <li><a class="dropdown-item nav-link nav_item" href="/pre-primary">Pre-Primary</a></li> 
+                                <li><a class="dropdown-item nav-link nav_item active" href="/primary">Primary</a></li>
+                                <li><a class="dropdown-item nav-link nav_item" href="/high-school">High School</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="/contactus">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER --> 
+<!-- START SECTION BREADCRUMB -->
+<section class="page-title-light breadcrumb_section parallax_bg overlay_bg_50" data-parallax-bg-image="{% static 'assets/images/about_bg.jpg' %}">
+	<div class="container">
+    	<div class="row align-items-center">
+        	<div class="col-sm-6">
+            	<div class="page-title">
+            		<h1>About Us</h1>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-sm-end">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BANNER -->
+<!-- START SECTION ABOUT -->
+<section class="large_pt large_pb overflow-hidden">
+	<div class="container-fluid p-0">
+    	<div class="row no-gutters align-items-center">
+        	<div class="col-md-6">
+            	<div class="box_shadow1 bg-white overlap_section padding_eight_all">
+                	<div class="animation" data-animation="fadeInLeft" data-animation-delay="0.02s">
+                        <div class="heading_s1"> 
+                          <h2>About Us</h2>
+                        </div>
+                        <p>“Dedication to academic excellence our innovative approach to learning and our passion for nurturing creativity”</p>
+                        <p>
+Gurukula international school was founded in 2005 with Montessori, primary and higher primary system of education. It is situated near banavara, Arsikere Tq., Hassan District. Surrounded with 6 acre with large playground and beautiful garden with peaceful atmosphere. As a feature it is affiliated to CBSE with residential and have conducive environment for learning.</p>
+<p>
+The system of education for tiny-tots and young children has been widely recognized as an ideal system to guide the children in their primary age and prepare for them for higher education and to make them good citizen of the country.
+                        </p>
+                        <p>
+We have track record of cent percent result right from the inception a large number of them getting through with distinction. Seven batch of X std students of our GIs went out leaving behind strong foot marks.
+</p>
+                        <ul class="list_none list_item">
+                        	<li>
+                            	<div class="counter_content">
+                                    <h3 class="h1 text_danger"><span class="counter">2005</span></h3>
+                                    <h6>founded</h6>
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="counter_content">
+                                    <h3 class="h1 text_light_green"><span class="counter">1500</span>+</h3>
+                                    <h6>Students</h6>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="text-left animation" data-animation="fadeInUp" data-animation-delay="0.07s">
+                	<div class="medium_divider"></div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="col-md-6">
+            	<div class="animation" data-animation="fadeInRight" data-animation-delay="0.03s">
+                	<div class="overlay_bg_10 about_img z_index_minus1">	
+                    	<img class="w-100" src="{% static 'assets/images/video-bg.png' %}" alt="about_img"/>
+                    </div>
+                	 <a href="" class="video_popup video_play">
+                    	<span class="ripple"><i class="ion-play ml-1"></i></span>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION ABOUT -->
+<!-- START SECTION EVENT -->
+<section class="bg_gray">
+	<div class="container">
+        <div class="row event_list justify-content-center">
+        	<div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="content_box event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                            <div class="content_desc bg-white">	
+                                <h4 class="content_title"><a href="#">Our Mission</a></h4>
+                                <p>To nurture individual talents and abilities empowering all children and help them to develop into creative, disciplined, dynamic leaders of the future. These children will be active global citizens contributing richly to our nation and the world. To raise them as independent, responsible, resourceful and successful individuals with high self-esteem and confidence.</p>
+                            </div>
+                        </div>
+                        <div class="content_box event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                        <div class="content_desc bg-white">
+                            <h4 class="content_title"><a href="#">Our Vision</a></h4>
+                            <p>Our vision is to foster a society of individual capable of progressive thinking, creating and initiating positive change in the social, economic and cultural fabric to impact the global community through knowledge, understanding and attitude.</p>
+                        </div>
+                    </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="content_box event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.03s">
+                            <div class="content_desc bg-white">	
+                                <h4 class="content_title"><a href="#">Our objectives</a></h4>
+                                <p>Fostering in students a sense of pride in our culture and heritage. Exposure to knowledge among students through Curricular and extra-Curricular activities. To develop the intrinsic qualities of the students. To mould students into good citizens through morals, education discipline and encouragement</p>
+                            </div>
+                        </div>
+                        <div class="content_box event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.04s">
+                        <div class="content_desc bg-white">
+                            <h4 class="content_title"><a href="#">School Responsibility</a></h4>
+                            <ul class="list_style_1">
+                        	<li>Quality Education with discipline</li>
+                            <li>Concern about each child</li>
+                            <li>Individual personalized attention and focusing on each and every child</li>
+                            <li>We will conduct career counseling every year for out going grade 10th std students</li>
+                            <li>Emphasis on life skills that go beyond their curriculum</li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- START SECTION EVENT -->
+
+<!-- START FOOTER -->
+{% include './footer.html' %}
+<!-- END FOOTER -->
+
+<a href="#" class="scrollup"><i class="ion-ios-arrow-up"></i></a> 
+
+<!-- Latest jQuery --> 
+<script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script> 
+<!-- jquery-ui --> 
+<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+<!-- popper min js --> 
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script> 
+<!-- owl-carousel min js  --> 
+<script src="{% static 'assets/owlcarousel/js/owl.carousel.min.js' %}"></script> 
+<!-- magnific-popup min js  --> 
+<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script> 
+<!-- waypoints min js  --> 
+<script src="{% static 'assets/js/waypoints.min.js' %}"></script> 
+<!-- parallax js  --> 
+<script src="{% static 'assets/js/parallax.js' %}"></script> 
+<!-- countdown js  --> 
+<script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script> 
+<!-- jquery.counterup.min js --> 
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<!-- imagesloaded js --> 
+<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+<!-- isotope min js --> 
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<!-- jquery.parallax-scroll js -->
+<script src="{% static 'assets/js/jquery.parallax-scroll.js' %}"></script>
+<!-- scripts js --> 
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+</body>
+</html>

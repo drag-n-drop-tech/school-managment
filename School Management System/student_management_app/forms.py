@@ -1,20 +1,15 @@
 from django import forms 
 from django.forms import Form
 from student_management_app.models import Classes
-
+from .models import Students
 
 class DateInput(forms.DateInput):
     input_type = "date"
 
 
 class AddStudentForm(forms.Form):
-    email = forms.EmailField(label="Email", max_length=50, widget=forms.EmailInput(attrs={"class":"form-control"}))
-    password = forms.CharField(label="Password", max_length=50, widget=forms.PasswordInput(attrs={"class":"form-control"}))
-    first_name = forms.CharField(label="First Name", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
-    last_name = forms.CharField(label="Last Name", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
-    username = forms.CharField(label="Username", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
     address = forms.CharField(label="Address", max_length=50, widget=forms.TextInput(attrs={"class":"form-control"}))
-
+    
     #For Displaying Courses
     try:
         courses = Classes.objects.all()
@@ -48,7 +43,15 @@ class AddStudentForm(forms.Form):
     # session_end_year = forms.DateField(label="Session End", widget=DateInput(attrs={"class":"form-control"}))
     profile_pic = forms.FileField(label="Profile Pic", required=False, widget=forms.FileInput(attrs={"class":"form-control"}))
 
+class NewStudentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(NewStudentForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
+    class Meta:
+        model = Students
+        fields = ['gender', 'profile_pic', 'parent', 'address', 'ClassNo', ]
 
 class EditStudentForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=50, widget=forms.EmailInput(attrs={"class":"form-control"}))
