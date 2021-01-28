@@ -64,6 +64,7 @@ class Parents(models.Model):
 class Students(models.Model):
     id = models.AutoField(primary_key=True)
     gender = models.CharField(max_length=50)
+    full_name = models.CharField(max_length=100, default='')
     profile_pic = models.FileField()
     parent=models.ForeignKey(Parents, on_delete=models.CASCADE, null=True)
     address = models.TextField()
