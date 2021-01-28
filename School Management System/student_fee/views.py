@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import fees_collection, fees_collection_items, fees_data
 
+def fee_collection(request):
+    return render(request,'fee_collection_template.html')
+
 def save_fee_data(request):
     if request.method == 'POST':
         fee_type= request.POST['fee_type']
