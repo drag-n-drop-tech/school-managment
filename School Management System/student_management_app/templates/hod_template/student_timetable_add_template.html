@@ -1,0 +1,167 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+    Add Timetable Period
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Timetable Period</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form role="form" method="POST" action="{% url 'add_subject_save' %}">
+                        {% csrf_token %}
+
+                        
+                                {% comment %} Display Messages {% endcomment %}
+                                {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Select Day</label>
+                                        <select name="day" id="day" class="form-control">
+                                            <option value="">Select Day</option>
+                                            <option value="Monday">Monday</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Select Class</label>
+                                        <select name="day" id="day" class="form-control">
+                                            <option value="">Select Class</option>
+                                            <option value="Monday">Class 1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Sequence</label>
+                                                <input type="number" class="form-control" name="subject" placeholder="Enter Subject">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>From Time</label>
+                                                <input type="time" class="form-control" name="subject" placeholder="Enter Subject">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>To Time</label>
+                                                <input type="time" class="form-control" name="subject" placeholder="Enter Subject">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                               
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkIsSubject" checked="checked">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                          is Subject
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                   <div id="subject-div">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Subject</label>
+                                            <select name="day" id="day" class="form-control">
+                                                <option value="">Select Subject</option>
+                                                <option value="Maths">Maths</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Staff</label>
+                                            <select name="day" id="day" class="form-control">
+                                                <option value="">Select Staff</option>
+                                                <option value="Mohan">Mohan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                   
+                                </div> 
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <label>Enter Description</label>
+                                    <textarea name="description" id="description" rows="4" class="form-control"></textarea>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add Timetable</button>
+                        </div>
+                    </form>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+  {% block custom_js %}
+  <script>
+      $(document).ready(function(){
+          $('#checkIsSubject').change(function(){
+              if($(this).prop('checked')==true){
+                  $('#subject-div').show()
+              }else{
+                  $('#subject-div').hide()
+              }
+          })
+      })
+  </script>
+  {% endblock %}

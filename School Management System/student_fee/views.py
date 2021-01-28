@@ -16,10 +16,6 @@ def fee_list(request):
     return render(request, 'student_fee/fee_data_tamplete.html', context)
 
 
-
-
-
-
 def new_fee_data(request):
     context = {}
     if request.method == 'POST':

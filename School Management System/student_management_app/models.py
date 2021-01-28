@@ -166,6 +166,27 @@ class StudentResult(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
 
+class student_timetable(models.Model):
+    days = (
+        ('Monday','Monday'),
+        ('Tuesday','Tuesday'),
+        ('Wednesday','Wednesday'),
+        ('Thursday','Thursday'),
+        ('Friday','Friday'),
+        ('Saturday','Saturday'),
+    )
+    class_id = models.ForeignKey(Classes,on_delete=models.CASCADE)
+    sequence = models.PositiveIntegerField(default=0)
+    day = models.CharField(max_length=15,choices=days)
+    from_time = models.CharField(max_length=20)
+    to_time = models.CharField(max_length=20)
+    is_subject = models.BooleanField(default=True)
+    subject_id = models.ForeignKey(Subjects,on_delete=models.CASCADE,null=True)
+    staff_id = models.ForeignKey(Staffs,on_delete=models.CASCADE,null=True)
+    description = models.CharField(max_length=100,null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 #Creating Django Signals
 

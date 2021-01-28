@@ -57,8 +57,6 @@ def staff_home(request):
     
     return render(request, "staff_template/staff_home_template.html", )
 
-
-
 def staff_take_attendance(request):
     subjects = Subjects.objects.filter(staff_id=request.user.id)
     session_years = SessionYearModel.objects.all()
@@ -68,7 +66,6 @@ def staff_take_attendance(request):
     }
     return render(request, "staff_template/take_attendance_template.html", context)
 
-
 def staff_apply_leave(request):
     staff_obj = Staffs.objects.get(admin=request.user.id)
     leave_data = LeaveReportStaff.objects.filter(staff_id=staff_obj)
@@ -76,7 +73,6 @@ def staff_apply_leave(request):
         "leave_data": leave_data
     }
     return render(request, "staff_template/staff_apply_leave_template.html", context)
-
 
 def staff_apply_leave_save(request):
     if request.method != "POST":
@@ -96,7 +92,6 @@ def staff_apply_leave_save(request):
             messages.error(request, "Failed to Apply Leave")
             return redirect('staff_apply_leave')
 
-
 def staff_feedback(request):
     staff_obj = Staffs.objects.get(admin=request.user.id)
     feedback_data = FeedBackStaffs.objects.filter(staff_id=staff_obj)
@@ -104,7 +99,6 @@ def staff_feedback(request):
         "feedback_data":feedback_data
     }
     return render(request, "staff_template/staff_feedback_template.html", context)
-
 
 def staff_feedback_save(request):
     if request.method != "POST":
@@ -180,9 +174,6 @@ def save_attendance_data(request):
         return HttpResponse("OK")
     except:
         return HttpResponse("Error")
-
-
-
 
 def staff_update_attendance(request):
     subjects = Subjects.objects.filter(staff_id=request.user.id)
