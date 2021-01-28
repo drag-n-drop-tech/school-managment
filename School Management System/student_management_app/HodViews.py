@@ -729,6 +729,9 @@ def addStudent(request):
 
     return render(request, 'hod_template/addStudent.html')
 
+def add_timetable(request):
+    return render(request,'hod_template/student_timetable_add_template.html')
+
 
 
 

@@ -9,5 +9,4 @@ urlpatterns = [
     path('', include('webapp.urls')),
     path('', include('student_management_app.urls')),
     path('fee/', include('student_fee.urls')),
-    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
