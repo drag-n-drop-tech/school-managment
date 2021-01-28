@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+import datetime
 
 from .models import fees_collection, fees_collection_items, fees_data
+from student_management_app.models import Students
 
 
 def fee_collection(request):
@@ -73,5 +75,6 @@ def delete_fee_data(request, id):
 
 def fees_collection_list(request):
     context = {}
-    collections = fees_collection.objects.all()
-    return render(request, 'student_fee/edit_fee_data.html', context)
+    today = datetime.date.today()
+    context['students'] = Students.objects.filter(year=today.year)
+    return render(request, 'fee_collection_template.html', context)

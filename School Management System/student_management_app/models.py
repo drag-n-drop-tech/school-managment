@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+import datetime
 
 
 # Overriding the Default Django Auth User and adding One More Field (user_type)
@@ -61,8 +61,14 @@ class Parents(models.Model):
         return self.parent_name
 
 
+def current_year():
+    today = datetime.date.today()
+    return today.year
+
 class Students(models.Model):
     id = models.AutoField(primary_key=True)
+    year = models.PositiveIntegerField(default=current_year)
+    admission_no = models.CharField(max_length=50, default='')
     gender = models.CharField(max_length=50)
     full_name = models.CharField(max_length=100, default='')
     profile_pic = models.FileField()

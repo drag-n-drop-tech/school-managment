@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions, status
 
-from .serializers import fees_collectionSerializer
-from .models import fees_collection
+from .serializers import fees_collectionSerializer, feesDataSerializer
+from .models import fees_collection, fees_data
 
 
 class fees_collection_view(viewsets.ModelViewSet):
@@ -11,3 +11,9 @@ class fees_collection_view(viewsets.ModelViewSet):
     permissions = [
         permissions.AllowAny
     ]
+
+
+class feesDataView(viewsets.ModelViewSet):
+    queryset = fees_data.objects.all()
+    serializer_class = feesDataSerializer
+    permission_classes = [permissions.AllowAny]

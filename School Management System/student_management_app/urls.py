@@ -1,10 +1,19 @@
 
 from django.urls import path, include
+from rest_framework import routers
+
 from . import views
+from .api import Studentsviewset
 from .import HodViews, StaffViews, StudentViews
+
+router = routers.DefaultRouter()
+
+router.register('searched_student', Studentsviewset, 'searched_student')
+
 
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('login', views.loginPage, name="login"),
     # path('accounts/', include('django.contrib.auth.urls')),
     path('doLogin/', views.doLogin, name="doLogin"),

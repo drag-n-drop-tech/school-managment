@@ -18,32 +18,49 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="Student">Student</label>
-                                    <select name="Student" id="Student" class="custom-select">
+                                    <label for="Student">Admission No.</label>
+                                    <!-- {% comment %} <select name="Student" id="Student" class="custom-select">
                                         <option value="">Select Student</option>
-                                        <option value="Samir">Samir</option>
-                                    </select>
+                                        {% for student in students %}
+
+                                        <option value="{{student.id}}">{{student.full_name}}</option>
+                                        {% endfor %}
+                                    </select> {% endcomment %} -->
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="admission" placeholder="Enter Admission Number">
+                                        <span class="input-group-btn">
+                                            <button class="btn search btn-primary">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="Student">Student Name</label>
+                                    <input type="text" name="student" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="Student">Class</label>
-                                    <input type="text" class="form-control" readonly="readonly">
+                                    <input type="text" class="form-control" name="ClassNo" readonly="readonly">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="Student">Parent</label>
-                                    <input type="text" class="form-control" readonly="readonly">
+                                    <input type="text" class="form-control" name="parent" readonly="readonly">
                                 </div>
                             </div>
                         </div>
                         <table class="table table-bordered table-sm table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Slno</th>
                                     <th class="w-50">Particulars</th>
                                     <th>Qty</th>
                                     <th>Price</th>
@@ -54,18 +71,17 @@
                             </thead>
                             <tbody>
                                 <tr id="addRow">
-                                    <td>1</td>
                                     <td>
-                                        <input type="text" class="form-control Particulars form-control-sm">
+                                        <input type="text" id="types" class="form-control Particulars form-control-sm">
                                     </td>
                                     <td >
-                                        <input type="number" class="form-control Qty form-control-sm">
+                                        <input value="1" type="number" id="qty"  class="form-control Qty form-control-sm">
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control Price form-control-sm">
+                                        <input type="number" readonly name="fee_price" class="form-control Price form-control-sm">
                                     </td>
                                     <td>
-                                        <select name="GST" id="GST" class="custom-select Tax form-control-sm">
+                                        <select name="GST" id="GST" class="custom-select Tax form-control-sm" >
                                             <option value="">Select Tax</option>
                                             <option value="5">5</option>
                                             <option value="12">12</option>
@@ -74,7 +90,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control Amount form-control-sm">
+                                        <input type="number" readonly name="total_price" class="form-control Amount form-control-sm">
                                     </td>
                                     <td>
                                         <button class="btn btn-primary addBtn btn-sm">
@@ -105,34 +121,142 @@
             // keyup event will be triggered when user leaves keyboard
             function formatRows(Particulars, Qty, Price,Tax,Amount) {
                 return `<tr>
-                    <th>1</th>
-                    <th class="w-50">${Particulars}</th>
-                    <th>${Qty}</th>
-                    <th>${Price}</th>
-                    <th>${Tax}</th>
-                    <th>${Amount}</th>
-                    <th><a href="#" class="btn btn-danger btn-sm" onClick="deleteRow(this)">
+                    <td class="w-50">${Particulars}</td>
+                    <td>${Qty}</td>
+                    <td>${Price}</td>
+                    <td>${Tax}</td>
+                    <td>${Amount}</td>
+                    <td><a href="#" class="btn btn-danger btn-sm" onClick="deleteRow(this)">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
-                    </th>
+                    </td>
                     </tr>`;
             };
 
-            
+            const send_data = []
 
             function addRow() {
                 var Particulars = $('.Particulars').val();
+                const serData = map[Particulars];
+                // checking if the type is already selected or not,
+                const is_type_already_selected = all_selected_fee_type.some(function(type){
+                    console.log(serData.id , '===', type.id)
+                    return serData.id == type.id
+                })
+                console.log(is_type_already_selected)
+                if(is_type_already_selected){
+                    toastr.warning('This fee type already exist.', 'Warning', {
+                        positionClass : 'toast-top-center'
+                    } )
+                    return
+                }
+                const objects ={
+                    'id': serData.id,
+                    'data': serData
+                }
+                all_selected_fee_type.push(objects);
                 var Qty = $('.Qty').val();
                 var Price = $('.Price').val();
-                var Tax = $('.Tax').val();
+                var Tax = $('.Tax').val() || 0;
                 var Amount = $('.Amount').val();
                 $(formatRows(Particulars, Qty, Price,Tax,Amount)).insertAfter('#addRow');
-                $(input).val('');
+                $('#addRow input').val('');
+
+                const obj ={
+                    'student': $('input[name="student"]').prop('data-stud_id'),
+                    'quentity': Qty,
+                    'total_amt': Amount,
+                    'tax_percent': Tax,
+                    
+                }
+                send_data.push(obj);
+                console.log(send_data)
             }
 
             $('.addBtn').click(function () {
                 addRow();
             });
+
+            $('.search').click(function(){
+                const admissionNo = $('#admission').val();
+                $.ajax({
+                    url: `/searched_student?admission=`+admissionNo,
+                    method: 'GET',
+                    contentType: 'application/json'
+                })
+                .done(resp=>{
+                    console.log(resp)
+                    $('input[name="student"]').val(resp[0].full_name);
+                    $('input[name="student"]').prop('data-stud_id', resp[0].id);
+                    $('input[name="ClassNo"]').val(resp[0].ClassNo.class_name)
+                    $('input[name="parent"]').val(resp[0].parent.parent_name)
+
+                })
+                .fail(err=> console.log(err))
+            })
+
+            let map = {}
+            $.getJSON('/fee/feesType/', {}, function (data) {
+            if (data) {
+                var types_list = []
+                // console.log(data)
+                $.each(data, function (i, item) {
+                    map[item.fee_type] = item
+                    types_list.push(item.fee_type)
+                })
+                $("#types").autocomplete({
+                    source: types_list,
+                    minLength: 1,
+                    select: function (event, ui) {
+                        this.value = ui.item.value;
+                        addType(ui.item.value)
+                        return false;
+                    }
+                })
+            }
+        })
+
+
+
+        let all_selected_fee_type = [];
+
+        function addType(typeName){
+            let serData = map[typeName]
+            
+                const obj ={
+                    'id': serData.id,
+                    'data': serData
+                }
+                // all_selected_fee_type.push(obj);
+                $('#GST').prop('data-id', serData.id)
+                $('#qty').prop('data-id', serData.id)
+                $('#qty').val(1)
+                $('input[name="fee_price"]').val(serData.fee_amount)
+                $('input[name="total_price"]').val(serData.fee_amount)
+            
+        }
+
+
+        $('tbody').on('change', '#GST', function(){
+            const product_price = $('input[name="total_price"]').val() || 0;
+
+            let totalPrices = ((product_price * parseFloat($(this).val())) / 100)
+            totalPrices += parseFloat(product_price) + parseFloat(totalPrices)
+            $('input[name="total_price"]').val(totalPrices);
+            
+        })
+        
+        $('tbody').on('change', '#qty', function(){
+            let gst_val = $('#GST').val() || 0;
+            const product_price = $('input[name="fee_price"]').val();
+            let totalPrice = (parseFloat(product_price) * (parseFloat($(this).val())))
+
+            totalPrice += (totalPrice * parseFloat(gst_val))/100;
+            $('input[name="total_price"]').val(totalPrice);
+
+
+        })
+
         })
     </script>
 

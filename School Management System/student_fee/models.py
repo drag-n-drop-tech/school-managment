@@ -22,6 +22,7 @@ def generateInvNumber():
 
 class fees_collection(models.Model):
     inv_number = models.CharField(max_length=25,default=generateInvNumber)
+    quentity = models.PositiveIntegerField(default=0)
     student = models.ForeignKey(Students,on_delete=models.CASCADE)
     total_amt=models.DecimalField(max_digits=10,decimal_places=2)
     payment_type = models.CharField(max_length=10)
@@ -38,6 +39,7 @@ class fees_collection(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.CharField(max_length=25,default="Anonymous")
 
+
 class fees_collection_items(models.Model):
     fees_collection_id = models.ForeignKey(fees_collection,on_delete=models.CASCADE)
     fee_type = models.ForeignKey(fees_data,on_delete=models.CASCADE)
@@ -49,4 +51,3 @@ class fees_collection_items(models.Model):
 
 
 
-    
