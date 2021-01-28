@@ -20,7 +20,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" method="POST" action="{% url 'add_subject_save' %}">
+                    <form role="form" method="POST" action="">
                         {% csrf_token %}
 
                         
@@ -61,9 +61,11 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Select Class</label>
-                                        <select name="day" id="day" class="form-control">
+                                        <select name="class_id" id="class_id" class="form-control">
                                             <option value="">Select Class</option>
-                                            {% for  %}
+                                            {% for class in classes %}
+                                                <option value="{{class.id}}">{{class.class_name}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
@@ -72,19 +74,19 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Sequence</label>
-                                                <input type="number" class="form-control" name="subject" placeholder="Enter Subject">
+                                                <input type="number" class="form-control" name="sequence" placeholder="Enter Subject">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>From Time</label>
-                                                <input type="time" class="form-control" name="subject" placeholder="Enter Subject">
+                                                <input type="time" class="form-control" name="from_time" placeholder="Enter Subject">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>To Time</label>
-                                                <input type="time" class="form-control" name="subject" placeholder="Enter Subject">
+                                                <input type="time" class="form-control" name="to_time" placeholder="Enter Subject">
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +95,7 @@
                                
                                 <div class="col-md-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="checkIsSubject" checked="checked">
+                                        <input class="form-check-input" type="checkbox" name="is_subject" id="checkIsSubject" checked="checked">
                                         <label class="form-check-label" for="defaultCheck1">
                                           is Subject
                                         </label>
@@ -105,18 +107,22 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Select Subject</label>
-                                            <select name="day" id="day" class="form-control">
+                                            <select name="subject_id" id="subject_id" class="form-control">
                                                 <option value="">Select Subject</option>
-                                                <option value="Maths">Maths</option>
+                                                {% for subject in subjects %}
+                                                <option value="{{subject.id}}">{{subject.subject_name}}</option>
+                                                {% endfor%}
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Select Staff</label>
-                                            <select name="day" id="day" class="form-control">
+                                            <select name="staff_id" id="staff_id" class="form-control">
                                                 <option value="">Select Staff</option>
-                                                <option value="Mohan">Mohan</option>
+                                                {% for staff in staffs %}
+                                                    <option value="{{staff.id}}">{{staff.admin.first_name}} {{staff.admin.last_name}}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>

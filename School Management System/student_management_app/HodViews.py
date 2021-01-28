@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-from student_management_app.models import CustomUser,Parents, Staffs, Classes, Subjects, Students,  FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
+from student_management_app.models import CustomUser, student_timetable, Parents, Staffs, Classes, Subjects, Students,  FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
 from .forms import AddStudentForm, EditStudentForm, NewStudentForm, day_option_form
 
 
@@ -730,6 +730,41 @@ def addStudent(request):
     return render(request, 'hod_template/addStudent.html')
 
 def add_timetable(request):
+    if request.method == 'POST':
+        #student_timetable
+        # try: 
+        day_name = request.POST['day']
+        class_id = request.POST['class_id']
+        sequence = request.POST['sequence']
+        from_time = request.POST['from_time']
+        to_time = request.POST['to_time']
+        is_subject = request.POST.get('is_subject', None)
+        subject_id = request.POST['subject_id']
+        staff_id = request.POST['staff_id']
+        description = request.POST['description']
+        class_instance = Classes.objects.get(id=class_id) 
+        time_table = student_timetable(class_id=class_instance, sequence=sequence, day=day_name, from_time=from_time, to_time=to_time, )
+        if is_subject:
+            if subject_id != '' and staff_id != '':
+                subject_instance = Subjects.objects.get(pk=subject_id)
+                staff_instance = Staffs.objects.get(pk=staff_id) 
+                time_table.subject_id = subject_instance
+                time_table.staff_id = staff_instance
+                time_table.save()
+                messages.success(request, 'Time table saved.')
+
+            else: 
+                messages.error(request, 'If is subject is on then select subject and staff')
+        else:
+            time_table.save()
+            messages.success(request, 'Time table saved.')
+
+        # except:
+        #     messages.error(request, 'All fields are not coming.')
+
+
+
+
     context ={
         'form': day_option_form()
     }
@@ -739,6 +774,31 @@ def add_timetable(request):
     return render(request,'hod_template/student_timetable_add_template.html', context)
 
 
+def edit_timetable(request, id):
+    context = {}
+    # try:
+    instance = student_timetable.objects.get(id=id)
+    # except:
+        # return  HttpResponse('This is not valid request')
+
+    if request.method == 'POST':
+        pass
+
+    context['data'] = instance
+    return render(request, 'hod_template/student_timetable_edit_template.html', context)
 
 
+def delete_timetable(request, id):
+    try: 
+        student_timetable.objects.get(id=id).delete()
+        messages.success(request, 'Deleted successfull.')
+    except:
+        messages.error(request, 'There has not any data to delete.')
+    return HttpResponseRedirect(reverse('admin_student_timetable_view'))
+    
 
+def view_time_table(request):
+    context = {
+        'timeTables' : student_timetable.objects.all()
+    }
+    return render(request, 'hod_template/student_timetable_view_template.html', context)

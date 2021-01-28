@@ -71,6 +71,9 @@ urlpatterns = [
     path('admin_profile/', HodViews.admin_profile, name="admin_profile"),
     path('admin_profile_update/', HodViews.admin_profile_update, name="admin_profile_update"),
     path('add_timetable/', HodViews.add_timetable, name="admin_student_timetable_add"),
+    path('edit_timetable/<id>/', HodViews.edit_timetable, name="admin_student_timetable_edit"),
+    path('delete_timetable/<id>/', HodViews.delete_timetable, name="admin_student_timetable_delete"),
+    path('all_timetables/', HodViews.view_time_table, name="admin_student_timetable_view"),
     
 
 
