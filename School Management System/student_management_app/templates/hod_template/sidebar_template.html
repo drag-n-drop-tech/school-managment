@@ -166,6 +166,37 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Time Table
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                {% url 'admin_student_timetable_view' as admin_student_timetable_view %}
+                {% url 'admin_student_timetable_view' subject_id=id as edit_subject %}
+                <a href="{{ admin_student_timetable_view }}" class="nav-link menu-open {% if request.path == admin_student_timetable_view %} active {% endif %} {% if request.path == edit_subject %} active {% endif %}">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    View Time Table
+                  </p>
+                </a>
+              </li>
+  
+              <li class="nav-item ">
+                {% url 'admin_student_timetable_add' as add_timetable %}
+                <a href="{{ add_timetable }}" class="nav-link {% if request.path == add_timetable %} active {% endif %}">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Add New Time Table
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
             {% url 'newParent' as newParent %}
             <a href="{{ newParent }}" class="nav-link {% if request.path == newParent %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>

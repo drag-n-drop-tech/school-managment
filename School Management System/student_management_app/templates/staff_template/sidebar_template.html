@@ -37,7 +37,7 @@
             </li>
            
             <li class="nav-item">
-              {% url 'staff_home' as staff_home %}
+              {% url 'add_assignment' as staff_home %}
               <a href="{{ staff_home }}" class="nav-link {% if request.path == staff_home %} active {% endif %}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>

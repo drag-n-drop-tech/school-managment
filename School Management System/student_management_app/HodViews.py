@@ -743,8 +743,9 @@ def add_timetable(request):
         staff_id = request.POST['staff_id']
         description = request.POST['description']
         class_instance = Classes.objects.get(id=class_id) 
-        time_table = student_timetable(class_id=class_instance, sequence=sequence, day=day_name, from_time=from_time, to_time=to_time, )
+        time_table = student_timetable(class_id=class_instance, sequence=sequence, day=day_name, from_time=from_time, to_time=to_time, description=description)
         if is_subject:
+            time_table.is_subject = True
             if subject_id != '' and staff_id != '':
                 subject_instance = Subjects.objects.get(pk=subject_id)
                 staff_instance = Staffs.objects.get(pk=staff_id) 
@@ -756,6 +757,7 @@ def add_timetable(request):
             else: 
                 messages.error(request, 'If is subject is on then select subject and staff')
         else:
+            time_table.is_subject =False
             time_table.save()
             messages.success(request, 'Time table saved.')
 
@@ -782,9 +784,44 @@ def edit_timetable(request, id):
         # return  HttpResponse('This is not valid request')
 
     if request.method == 'POST':
-        pass
+        instance.day = request.POST['day']
+        classes_id = request.POST['class_id']
+        instance.sequence = request.POST['sequence']
+        instance.from_time = request.POST['from_time']
+        instance.to_time = request.POST['to_time']
+        is_subject = request.POST.get('is_subject', None)
+        subject_id = request.POST['subject_id']
+        staff_id = request.POST['staff_id']
+        instance.description = request.POST['description']
+        instance.class_id = Classes.objects.get(id=classes_id) 
+        # instance = student_timetable(class_id=class_instance, sequence=sequence, day=day_name, from_time=from_time, to_time=to_time, )
+        if is_subject:
+            instance.is_subject =True
+            if subject_id != '' and staff_id != '':
+                subject_instance = Subjects.objects.get(pk=subject_id)
+                staff_instance = Staffs.objects.get(pk=staff_id) 
+                instance.subject_id = subject_instance
+                instance.staff_id = staff_instance
+                instance.save()
+                messages.success(request, 'Time table updated successfully.')
+                return HttpResponseRedirect(reverse('admin_student_timetable_view'))
+
+            else: 
+                messages.error(request, 'If is subject is on then select subject and staff')
+        else:
+            instance.is_subject=False
+            instance.subject_id =None
+            instance.staff_id = None
+            instance.save()
+            messages.success(request, 'Time table Updated successfully.')
+            return HttpResponseRedirect(reverse('admin_student_timetable_view'))
 
     context['data'] = instance
+    context['form'] = day_option_form(instance=instance)
+    context['classes'] = Classes.objects.all()
+    context['subjects'] = Subjects.objects.all()
+    context['staffs'] = Staffs.objects.all()
+
     return render(request, 'hod_template/student_timetable_edit_template.html', context)
 
 

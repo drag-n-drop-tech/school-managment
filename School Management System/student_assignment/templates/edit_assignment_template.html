@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- general form elements -->
-                    <form method="POST" action="{% url 'add_assignment' %}">
+                    <form method="POST">
                     {% csrf_token %}
                     <div class="card card-primary">
                     <div class="card-header">
@@ -58,8 +58,11 @@
                                              <select name="class_id" id="Class" class="form-control">
                                                  <option value="">Select Class</option>
                                                  {% for class in classes %}
-
-                                                    <option value="{{class.id}}">{{class.class_name}}</option>
+                                                    {% if assinment_instance.class_id.id ==  class.id %}
+                                                        <option value="{{class.id}}" selected>{{class.class_name}}</option>
+                                                    {% else %}
+                                                        <option value="{{class.id}}">{{class.class_name}}</option>
+                                                    {% endif %}
                                                  {% endfor %}
                                              </select>
                                             </div>
@@ -70,7 +73,12 @@
                                              <select name="subject_id" id="Subject" class="form-control">
                                                  <option value="">Select Subject</option>
                                                  {% for subject in subjects %}
-                                                 <option value="{{subject.id}}">{{subject.subject_name}}</option>
+                                                 {% if assinment_instance.subject_id.id == subject.id %}
+                                                    <option value="{{subject.id}}" selected>{{subject.subject_name}}</option>
+                                                 {% else %}
+                                                    <option value="{{subject.id}}">{{subject.subject_name}}</option>
+
+                                                {% endif %}
                                                  {% endfor %}
                                              </select>
                                             </div>
@@ -80,7 +88,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="Title">Title</label>
-                                                <input type="text" class="form-control" name='title' id="Title">
+                                                <input type="text" class="form-control" name='title' id="Title" value="{{assinment_instance.title}}">
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +96,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="Description">Description</label>
-                                                <textarea type="text" class="form-control" name="description" rows="4" id="Description" placeholder="Enter the Assignment Description(optional)"></textarea>
+                                                <textarea type="text" class="form-control" name="description" rows="4" id="Description" placeholder="Enter the Assignment Description(optional)">{{assinment_instance.description}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -105,34 +113,7 @@
                         {% comment %} Displaying Students Here {% endcomment %}
 
                         <div class="card-footer" id="student_data">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>class Name</th>
-                                    <th>Subject Name</th>
-                                    <th>Description</th>
-                                    <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for assignment in assignments %}
-                                    <tr>
-                                    <td>{{ assignment.id }}</td>
-                                    <td>{{ assignment.title }}</td>
-                                    <td>{{ assignment.class_id.class_name }}</td>
-                                    <td>{{ assignment.subject_id.subject_name }}</td>
-                                    <td>{{ assignment.description }}</td>
-                                    <td>
-                                         <a href="{% url 'edit_assignment' id=assignment.id %}" class="btn btn-success">Edit</a> 
-                                        <a href="{% url 'delete_assignment' id=assignment.id %}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                    </tr>
-                                    {% endfor %}
-                                    
-                                </tbody>
-                            </table>
+                            
                         </div> 
 
                     </div>

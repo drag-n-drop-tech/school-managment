@@ -1,0 +1,182 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+    Add Timetable Period
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Timetable Period</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form role="form" method="POST" action="">
+                        {% csrf_token %}
+
+                        
+                                {% comment %} Display Messages {% endcomment %}
+                                {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        {{form.as_p}}
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Select Class</label>
+                                        <select name="class_id" id="class_id" class="form-control">
+                                            <option value="">Select Class</option>
+                                            {% for class in classes %}
+                                                {% if data.class_id.id == class.id %}
+                                                <option value="{{class.id}}" selected >{{class.class_name}}</option>
+                                                {% else %}
+                                                <option value="{{class.id}}">{{class.class_name}}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Sequence</label>
+                                                <input type="number" class="form-control" name="sequence" placeholder="Enter Subject" value="{{data.sequence}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>From Time</label>
+                                                <input type="time" class="form-control" name="from_time" placeholder="Enter Subject" value="{{data.from_time}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>To Time</label>
+                                                <input type="time" class="form-control" name="to_time" placeholder="Enter Subject" value="{{data.to_time}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                               
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="is_subject" id="checkIsSubject" {% if data.is_subject %}checked="checked" {% endif %}>
+                                        <label class="form-check-label" for="defaultCheck1">
+                                          is Subject
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                   <div id="subject-div">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Subject</label>
+                                            <select name="subject_id" id="subject_id" class="form-control">
+                                                <option value="">Select Subject</option>
+                                                {% for subject in subjects %}
+                                                {% if data.subject_id.id == subject.id %}
+                                                <option value="{{subject.id}}" selected>{{subject.subject_name}}</option>
+                                                {% else %}
+                                                <option value="{{subject.id}}" >{{subject.subject_name}}</option>
+                                                {% endif %}
+                                                {% endfor%}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Select Staff</label>
+                                            <select name="staff_id" id="staff_id" class="form-control">
+                                                <option value="">Select Staff</option>
+                                                {% for staff in staffs %}
+                                                    {% if data.staff_id.id == staff.id %}
+                                                    <option value="{{staff.id}}" selected>{{staff.admin.first_name}} {{staff.admin.last_name}}</option>
+                                                    {% else %}    
+                                                    <option value="{{staff.id}}">{{staff.admin.first_name}} {{staff.admin.last_name}}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                   
+                                </div> 
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <label>Enter Description</label>
+                                    <textarea name="description" id="description" rows="4" class="form-control" value="{{data.description}}"></textarea>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add Timetable</button>
+                        </div>
+                    </form>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+  {% block custom_js %}
+  <script>
+      $(document).ready(function(){
+          $('#checkIsSubject').change(function(){
+              if($(this).prop('checked')==true){
+                  $('#subject-div').show()
+              }else{
+                  $('#subject-div').hide()
+              }
+          })
+      })
+  </script>
+  {% endblock %}

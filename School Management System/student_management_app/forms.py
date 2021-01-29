@@ -52,7 +52,8 @@ class NewStudentForm(forms.ModelForm):
     gender = forms.ChoiceField(choices=gender_option)
     class Meta:
         model = Students
-        fields = ['gender', 'full_name', 'profile_pic', 'parent', 'address', 'ClassNo', ]
+        # fields = ['gender', 'full_name', 'profile_pic', 'parent', 'address', 'ClassNo', 'admission_no']
+        fields ='__all__'
 
 class EditStudentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

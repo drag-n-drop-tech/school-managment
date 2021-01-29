@@ -67,8 +67,8 @@ def current_year():
 
 class Students(models.Model):
     id = models.AutoField(primary_key=True)
-    year = models.PositiveIntegerField(default=current_year)
     admission_no = models.CharField(max_length=50, default='')
+    year = models.PositiveIntegerField(default=current_year)
     gender = models.CharField(max_length=50)
     full_name = models.CharField(max_length=100, default='')
     profile_pic = models.FileField()

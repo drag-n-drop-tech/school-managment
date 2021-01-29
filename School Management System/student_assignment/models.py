@@ -25,6 +25,7 @@ class assignment_submission(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
 class assignment_submission_files(models.Model):
     assignment_submission_id = models.ForeignKey(assignment_submission,on_delete=models.CASCADE)
     assignmnt_file = models.FileField(upload_to='assignments_submissions/%Y-%m-%d')

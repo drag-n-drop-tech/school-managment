@@ -1,0 +1,101 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Add Assignment
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Assignment Files For Assignment "{{assignment.title}}"</h3> 
+                    </div>
+                    <!-- /.card-header -->
+
+                                {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+
+                        <div class="card-body">
+                            
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="AssignmentDetails" role="tabpanel" aria-labelledby="home-tab">
+                                    <label for="assignmnt_file">Assignment File</label>
+                                    <input type="file" name="assignmnt_file" id="assignmnt_file" class="form-control">
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="submit" class="btn btn-primary" id="fetch_student">Upload assignment file</button>
+                        </div>
+
+                        <div class="card-footer" id="student_data">
+                            <div>
+                                <div class="row">
+                                    {% for file in files %}
+                                        <p class="col-6">{{ file.assignmnt_file.name}} </p>
+                                        <div class="col-6">
+                                            <a href="{{file.assignmnt_file.url}}" target="_blank" class="btn btn-active btn-primary">Check it</a>
+                                            <a href="{% url 'delete_assignment_files' id=file.id %}" class="btn btn-active btn-danger">delete</a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div> 
+
+
+                    </div>
+                    </form>
+                    <!-- /.card -->
+                    
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+{% block custom_js %}
+
+<script>
+    $(document).ready(function(){
+        
+    })
+</script>
+{% endblock custom_js %}
